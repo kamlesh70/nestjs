@@ -1,0 +1,16 @@
+
+
+
+
+scope :- 
+    1. Global
+    2. Module
+    3. Controller
+    4. Request Handler
+
+flow :- 
+    1. Middleware
+    2. Guard
+    3. interceptor
+    4. pipe
+
