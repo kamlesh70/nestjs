@@ -5,9 +5,18 @@ import { UserModule } from './user/user.module';
 import { ProfileModule } from './profile/profile.module';
 import { StoreModule } from './store/store.module';
 import { DatabaseModule } from './database/database.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [UserModule, ProfileModule, StoreModule, DatabaseModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      load: [],
+    }),
+    UserModule, 
+    ProfileModule, 
+    StoreModule, 
+    DatabaseModule],
   controllers: [AppController],
   providers: [AppService],
 })
