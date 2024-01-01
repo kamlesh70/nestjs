@@ -6,17 +6,29 @@ import { ProfileModule } from './profile/profile.module';
 import { StoreModule } from './store/store.module';
 import { DatabaseModule } from './database/database.module';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './auth/auth.module';
+import databaseConfig from './config/database.config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      load: [],
+      load: [
+        databaseConfig
+      ],
     }),
+    DatabaseModule,
+    // MongooseModule.forRootAsync({
+    //   useFactory: () => {
+    //     return { uri: "" }
+    //   }
+    // }),
     UserModule, 
     ProfileModule, 
-    StoreModule, 
-    DatabaseModule],
+    StoreModule,
+    AuthModule, 
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
