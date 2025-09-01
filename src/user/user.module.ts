@@ -14,6 +14,7 @@ import {UniqueUserRule} from 'src/decorators/Rules/unique_user.rule';
     MongooseModule.forFeature([
       { name: User.name, schema: UserModel }
     ]),
+    StoreModule.forRoot('test101')
   ],
   controllers: [UserController],
   providers: [

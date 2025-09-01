@@ -19,9 +19,10 @@ import databaseConfig from './config/database.config';
       ],
     }),
     DatabaseModule,
+    // MongooseModule.forRoot('mongodb://127.0.0.1:27017/nest')
     // MongooseModule.forRootAsync({
     //   useFactory: () => {
-    //     return { uri: "" }
+    //     return { uri: "mongodb://localhost:27017/nest-practice" }
     //   }
     // }),
     UserModule, 

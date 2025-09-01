@@ -10,8 +10,11 @@ import { Model } from 'mongoose';
 export class UserService {
 
   constructor(
-    @InjectModel(User.name) private userModel: Model<UserDocument>
-  ){}
+    @InjectModel(User.name) private userModel: Model<UserDocument>,
+    @Inject('TEST') private readonly test: any,
+  ){
+    console.log("test service in user ", this.test);
+  }
 
   async findOneByEmail(email: string) {
     return await this.userModel.findOne({ email: email})

@@ -29,4 +29,29 @@ export class StoreModule {
     }
   }
 
+  static forRoot(name: String) : DynamicModule {
+    if(name == 'test101'){
+      return {
+        module: StoreModule,
+        providers: [
+          {
+            provide: 'TEST',
+            useValue: 'testing test101'
+          }
+        ],
+        exports: ['TEST']
+      }
+    }else{
+      return {
+        module: StoreModule,
+        providers: [
+          {
+            provide: 'TEST',
+            useValue: name
+          }
+        ],
+        exports: ['TEST']
+      }
+      }
+    }
 }
